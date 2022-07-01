@@ -13,9 +13,9 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Height="30">
             <MenuItem Header="File" Height="30" />
-            <MenuItem Header="1格" Height="30" Click="MenuItem_Click_1" />
-            <MenuItem Header="2格" Height="30"  Click="MenuItem_Click_2"/>
-            <MenuItem Header="4格" Height="30" Click="MenuItem_Click_4"/>
+            <MenuItem Header="1格" Height="30" Click="MenuItem_Click_1" ToolTip="采用一个浏览器" />
+            <MenuItem Header="2格" Height="30"  Click="MenuItem_Click_2" ToolTip="采用左右分屏方式"/>
+            <MenuItem Header="4格" Height="30" Click="MenuItem_Click_4" ToolTip="采用上下左右四格分屏"/>
         </Menu>
         <UniformGrid x:Name="gmain" Grid.Row="1">
         </UniformGrid>

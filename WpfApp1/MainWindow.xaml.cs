@@ -34,7 +34,7 @@ namespace WpfApp1
 
             InitializeComponent();
 
-            InitBrowser(2);
+            MenuItem_Click_2(null, null);
 
             this.SizeChanged += new System.Windows.SizeChangedEventHandler(Window_SizeChanged);
         }
@@ -52,16 +52,22 @@ namespace WpfApp1
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
+            this.gmain.Columns = 1;
+            this.gmain.Rows = 1;
             InitBrowser(1);
         }
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
+            this.gmain.Columns = 2;
+            this.gmain.Rows = 1;
             InitBrowser(2);
         }
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
+            this.gmain.Columns = 2;
+            this.gmain.Rows = 2;
             InitBrowser(4);
         }
 
@@ -73,7 +79,7 @@ namespace WpfApp1
             }
             while (this.gmain.Children.Count < count)
             {
-                this.gmain.Children.Add(new MyBrowser());
+                this.gmain.Children.Add(new MyBrowser(this.gmain.Children.Count + 1));
             }
         }
 
