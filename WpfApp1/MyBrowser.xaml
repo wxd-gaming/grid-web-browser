@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="WpfApp1.MyBrowser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="450">
+    <Grid x:Name="gmain">
+        <Button x:Name="btn_go" Content="转到" Padding="2,2,2,2" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Click="btn_rf_Click"/>
+        <TextBox x:Name="tb_url" Margin="40,7,40,0" TextWrapping="Wrap" Text="http://192.168.18.107:3616/index.html" VerticalAlignment="Top" KeyDown="tb_url_KeyDown"/>
+        <Button x:Name="btn_f12" Content="F12" Padding="2,2,2,2" HorizontalAlignment="Right" Margin="0,5,5,0" VerticalAlignment="Top" Click="btn_f12_Click"/>
+
+    </Grid>
+</UserControl>
