@@ -13,9 +13,27 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Height="30">
             <MenuItem Header="File" Height="30" />
-            <MenuItem Header="1格" Height="30" Click="MenuItem_Click_1" ToolTip="采用一个浏览器" />
-            <MenuItem Header="2格" Height="30"  Click="MenuItem_Click_2" ToolTip="采用左右分屏方式"/>
-            <MenuItem Header="4格" Height="30" Click="MenuItem_Click_4" ToolTip="采用上下左右四格分屏"/>
+            <MenuItem Header="纵横" Height="30" >
+                <MenuItem Header="1格" Height="30" Click="MenuItem_Click" ToolTip="采用一个浏览器" Tag="1,1,1" />
+                <MenuItem Header="2格" Height="30" Click="MenuItem_Click" ToolTip="采用左右分屏方式" Tag="1,2,2" />
+                <MenuItem Header="4格" Height="30" Click="MenuItem_Click" ToolTip="采用上下左右四格分屏" Tag="2,2,4" />
+                <MenuItem Header="6格" Height="30" Click="MenuItem_Click" ToolTip="采用上下左右四格分屏" Tag="2,3,6" />
+                <MenuItem Header="9格" Height="30" Click="MenuItem_Click" ToolTip="采用上下左右四格分屏" Tag="3,3,9" />
+            </MenuItem>
+            <MenuItem Header="竖屏" Height="30" >
+                <MenuItem Header="1格" Height="30" Click="MenuItem_Click" ToolTip="采用竖屏1格分屏" Tag="1,1,1"/>
+                <MenuItem Header="2格" Height="30" Click="MenuItem_Click" ToolTip="采用竖屏2格分屏" Tag="1,2,2"/>
+                <MenuItem Header="3格" Height="30" Click="MenuItem_Click" ToolTip="采用竖屏3格分屏" Tag="1,3,3"/>
+                <MenuItem Header="4格" Height="30" Click="MenuItem_Click" ToolTip="采用竖屏4格分屏" Tag="1,4,4"/>
+            </MenuItem>
+            <MenuItem Header="横屏" Height="30" >
+                <MenuItem Header="1格" Height="30" Click="MenuItem_Click" ToolTip="采用横屏1格分屏" Tag="1,1,1"/>
+                <MenuItem Header="2格" Height="30" Click="MenuItem_Click" ToolTip="采用横屏2格分屏" Tag="2,1,2"/>
+                <MenuItem Header="3格" Height="30" Click="MenuItem_Click" ToolTip="采用横屏3格分屏" Tag="3,1,3"/>
+                <MenuItem Header="4格" Height="30" Click="MenuItem_Click" ToolTip="采用横屏4格分屏" Tag="4,1,4"/>
+            </MenuItem>
+
+
         </Menu>
         <UniformGrid x:Name="gmain" Grid.Row="1">
         </UniformGrid>

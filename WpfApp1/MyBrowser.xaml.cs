@@ -31,7 +31,7 @@ namespace WpfApp1
         {
             this.num = num;
 
-            bakPath = AppDomain.CurrentDomain.BaseDirectory + "url_bak_" + num + ".bak";
+            bakPath = AppDomain.CurrentDomain.BaseDirectory + "cache\\url_bak_" + num + ".bak";
 
             if (System.IO.File.Exists(bakPath))
             {

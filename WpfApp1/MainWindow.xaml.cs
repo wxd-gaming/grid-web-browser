@@ -34,7 +34,7 @@ namespace WpfApp1
 
             InitializeComponent();
 
-            MenuItem_Click_2(null, null);
+            InitBrowser(1, 2, 2);
 
             this.SizeChanged += new System.Windows.SizeChangedEventHandler(Window_SizeChanged);
         }
@@ -50,25 +50,18 @@ namespace WpfApp1
             //this.userContro2.Resize();
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            this.gmain.Columns = 1;
-            this.gmain.Rows = 1;
-            InitBrowser(1);
+            Control control = sender as Control;
+            string[] tags = control.Tag.ToString().Split(",");
+            InitBrowser(int.Parse(tags[0]), int.Parse(tags[1]), int.Parse(tags[2]));
         }
 
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        public void InitBrowser(int rows, int columns, int count)
         {
-            this.gmain.Columns = 2;
-            this.gmain.Rows = 1;
-            InitBrowser(2);
-        }
-
-        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
-        {
-            this.gmain.Columns = 2;
-            this.gmain.Rows = 2;
-            InitBrowser(4);
+            this.gmain.Columns = columns;
+            this.gmain.Rows = rows;
+            InitBrowser(count);
         }
 
         public void InitBrowser(int count)
