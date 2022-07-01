@@ -1,20 +1,10 @@
 ﻿using CefSharp;
 using CefSharp.Wpf;
 using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfApp1
 {
@@ -76,5 +66,17 @@ namespace WpfApp1
             }
         }
 
+        private void mi_clear_cache_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string cachePtah = AppDomain.CurrentDomain.BaseDirectory + "cache";
+                System.IO.Directory.Delete(cachePtah, true);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
     }
 }

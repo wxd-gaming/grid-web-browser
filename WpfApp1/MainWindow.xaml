@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="分屏游戏浏览器" Height="850" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="無心道 分屏游戏浏览器" Height="850" Width="1000" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Height="30">
-            <MenuItem Header="File" Height="30" />
+            <MenuItem Header="File" Height="30" >
+                <MenuItem x:Name="mi_clear_cache" Header="清理缓存" Click="mi_clear_cache_Click"></MenuItem>
+            </MenuItem>
             <MenuItem Header="纵横" Height="30" >
                 <MenuItem Header="1格" Height="30" Click="MenuItem_Click" ToolTip="采用一个浏览器" Tag="1,1,1" />
                 <MenuItem Header="2格" Height="30" Click="MenuItem_Click" ToolTip="采用左右分屏方式" Tag="1,2,2" />
