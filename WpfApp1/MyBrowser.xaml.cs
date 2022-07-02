@@ -1,6 +1,7 @@
 ﻿using CefSharp;
 using CefSharp.Wpf;
 using System;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,15 +25,34 @@ namespace WpfApp1
         {
             this.num = num;
 
-            bakPath = AppDomain.CurrentDomain.BaseDirectory + "cache\\url_bak_" + num + ".bak";
+            string cachePath = AppDomain.CurrentDomain.BaseDirectory + "cache\\" + num;
+            Directory.CreateDirectory(cachePath);
+
+            bakPath = AppDomain.CurrentDomain.BaseDirectory + "cache_url";
+            Directory.CreateDirectory(bakPath);
+
+
+            bakPath += "\\browser_" + num + ".bak";
+
 
             if (System.IO.File.Exists(bakPath))
             {
                 urlBak = System.IO.File.ReadAllText(bakPath);
             }
+
             InitializeComponent();
-            chromiumWebBrowser = new ChromiumWebBrowser();
+
+            this.tb_url.KeyDown += tb_url_KeyDown;
+
+            this.chromiumWebBrowser = new ChromiumWebBrowser();
             this.chromiumWebBrowser.Margin = new Thickness(2, 30, 2, 2);
+
+            RequestContextSettings requestContextSettings = new RequestContextSettings();
+            requestContextSettings.CachePath = cachePath;
+            requestContextSettings.PersistSessionCookies = true;
+            requestContextSettings.PersistUserPreferences = true;
+            this.chromiumWebBrowser.RequestContext = new RequestContext(requestContextSettings);
+
             this.gmain.Children.Add(chromiumWebBrowser);
             if (!string.IsNullOrEmpty(urlBak))
             {
