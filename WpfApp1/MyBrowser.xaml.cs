@@ -31,9 +31,7 @@ namespace WpfApp1
             bakPath = AppDomain.CurrentDomain.BaseDirectory + "cache_url";
             Directory.CreateDirectory(bakPath);
 
-
             bakPath += "\\browser_" + num + ".bak";
-
 
             if (System.IO.File.Exists(bakPath))
             {

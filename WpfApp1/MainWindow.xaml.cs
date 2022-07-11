@@ -3,6 +3,8 @@ using CefSharp.Wpf;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,6 +15,9 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        String browserCache;
+
         public MainWindow()
         {
 
@@ -22,36 +27,32 @@ namespace WpfApp1
             settings.CefCommandLineArgs.Add("disable-session-storage", "1");
             if (!Cef.IsInitialized) Cef.Initialize(settings);
 
+            browserCache = AppDomain.CurrentDomain.BaseDirectory + "browser_cache.bak";
+
             InitializeComponent();
+            InitBrowser();
 
-            InitBrowser(1, 2, 2);
-
-            this.SizeChanged += new System.Windows.SizeChangedEventHandler(Window_SizeChanged);
         }
 
-        private void Window_SizeChanged(object sender, System.EventArgs e)
+        public void InitBrowser()
         {
-            //this.userControl.Width = this.ActualWidth / 2 - 8;
-            //this.userControl.Height = this.ActualHeight - 15;
-            //this.userControl.Resize();
+            int[] init = new int[] { 1, 2, 2 };
+            Debug.WriteLine(System.Text.Json.JsonSerializer.Serialize(init));
+            if (System.IO.File.Exists(browserCache))
+            {
+                String bak = System.IO.File.ReadAllText(browserCache);
+                init = JsonSerializer.Deserialize<int[]>(bak);
+            }
 
-            //this.userContro2.Width = this.ActualWidth / 2 - 8;
-            //this.userContro2.Height = this.ActualHeight - 15;
-            //this.userContro2.Resize();
+            InitBrowser(init);
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        public void InitBrowser(int[] init)
         {
-            Control control = sender as Control;
-            string[] tags = control.Tag.ToString().Split(",");
-            InitBrowser(int.Parse(tags[0]), int.Parse(tags[1]), int.Parse(tags[2]));
-        }
-
-        public void InitBrowser(int rows, int columns, int count)
-        {
-            this.gmain.Columns = columns;
-            this.gmain.Rows = rows;
-            InitBrowser(count);
+            this.gmain.Rows = init[0];
+            this.gmain.Columns = init[1];
+            InitBrowser(init[2]);
+            System.IO.File.WriteAllText(browserCache, JsonSerializer.Serialize(init), Encoding.UTF8);
         }
 
         public void InitBrowser(int count)
@@ -66,12 +67,35 @@ namespace WpfApp1
             }
         }
 
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Control control = sender as Control;
+            string[] tags = control.Tag.ToString().Split(",");
+            InitBrowser(new int[] { int.Parse(tags[0]), int.Parse(tags[1]), int.Parse(tags[2]) });
+        }
+
+        /// <summary>
+        /// 清理缓存
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mi_clear_cache_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                this.gmain.Children.Clear();
                 string cachePtah = AppDomain.CurrentDomain.BaseDirectory + "cache";
-                System.IO.Directory.Delete(cachePtah, true);
+                System.Collections.Generic.IEnumerable<string> enumerable = System.IO.Directory.EnumerateFiles(cachePtah, "", SearchOption.AllDirectories);
+                foreach (string file in enumerable)
+                {
+                    Debug.WriteLine(file);
+                    try
+                    {
+                        File.Delete(file);
+                    }
+                    catch { }
+                }
+                InitBrowser();
             }
             catch (Exception ex)
             {
