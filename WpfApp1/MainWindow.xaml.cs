@@ -102,5 +102,21 @@ namespace WpfApp1
                 Debug.WriteLine(ex);
             }
         }
+
+        private void mi_refresh_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                foreach (Control control in this.gmain.Children)
+                {
+                    ((MyBrowser)control).btn_go_Click(null, null);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
     }
 }

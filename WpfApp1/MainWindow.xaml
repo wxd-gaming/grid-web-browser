@@ -13,6 +13,7 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Height="30">
             <MenuItem Header="File" Height="30" >
+                <MenuItem x:Name="mi_refresh" Header="刷新" Click="mi_refresh_Click"></MenuItem>
                 <MenuItem x:Name="mi_clear_cache" Header="清理缓存" Click="mi_clear_cache_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="纵横" Height="30" >

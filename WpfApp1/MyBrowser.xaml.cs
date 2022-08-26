@@ -64,7 +64,7 @@ namespace WpfApp1
             btn_go_Click(null, null);
         }
 
-        private void btn_go_Click(object sender, RoutedEventArgs e)
+        public void btn_go_Click(object sender, RoutedEventArgs e)
         {
             this.chromiumWebBrowser.Load(this.tb_url.Text);
             urlBak = this.tb_url.Text;
