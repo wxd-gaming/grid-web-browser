@@ -118,5 +118,22 @@ namespace WpfApp1
                 Debug.WriteLine(ex);
             }
         }
+
+        private void mi_set_url(object sender, RoutedEventArgs e)
+        {
+            MenuItem mi = sender as MenuItem;
+            string tag = mi.Tag.ToString();
+            try
+            {
+                foreach (Control control in this.gmain.Children)
+                {
+                    ((MyBrowser)control).SetUrl(tag);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+        }
     }
 }
