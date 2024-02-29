@@ -14,12 +14,7 @@
         <Menu Grid.Row="0" Height="30">
             <MenuItem Header="开始" Height="30" >
                 <MenuItem Header="刷新" Click="mi_refresh_Click"></MenuItem>
-                <MenuItem Header="清理缓存" Click="mi_clear_cache_Click"></MenuItem>
-                <Separator/>
-                <MenuItem Header="1024-test" Tag="http://cdn.xiaw.net/sj_release/index945.html?boot=686&amp;sign=test_1" Click="mi_set_url"></MenuItem>
-                <Separator/>
-                <MenuItem Header="YY-test" Tag="http://cdn-rxdm.xiaw.net/release/index321.html?boot=1&amp;sign=web_4" Click="mi_set_url"></MenuItem>
-                <MenuItem Header="QQ-test" Tag="https://rexuecdn.13yx.com/release/index60.html?boot=1&amp;sign=pt_qq" Click="mi_set_url"></MenuItem>
+                <MenuItem Header="清理缓存" Click="mi_clear_cache_Click"></MenuItem>                
                 <Separator/>
                 <MenuItem Header="刘凡" Tag="http://192.168.50.94:3616/index.html" Click="mi_set_url"></MenuItem>
                 <Separator/>
