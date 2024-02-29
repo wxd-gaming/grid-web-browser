@@ -15,8 +15,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.Common.NETCore" Version="102.0.100" />
-    <PackageReference Include="CefSharp.Wpf.NETCore" Version="102.0.100" />
+    <PackageReference Include="CefSharp.Common.NETCore" Version="121.3.130" />
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="121.3.130" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="121.3.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="121.3.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x86" Version="121.3.13" />
   </ItemGroup>
 
 </Project>

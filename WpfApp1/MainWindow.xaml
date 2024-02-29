@@ -14,7 +14,8 @@
         <Menu Grid.Row="0" Height="30">
             <MenuItem Header="开始" Height="30" >
                 <MenuItem Header="刷新" Click="mi_refresh_Click"></MenuItem>
-                <MenuItem Header="清理缓存" Click="mi_clear_cache_Click"></MenuItem>                
+                <MenuItem Header="清理缓存" Click="mi_clear_cache_Click"></MenuItem>
+                <MenuItem Header="统一设置" Click="MenuItem_Click_1"></MenuItem>                
                 <Separator/>
                 <MenuItem Header="刘凡" Tag="http://192.168.50.94:3616/index.html" Click="mi_set_url"></MenuItem>
                 <Separator/>

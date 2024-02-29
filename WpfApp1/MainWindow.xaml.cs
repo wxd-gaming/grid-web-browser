@@ -1,5 +1,6 @@
 ﻿using CefSharp;
 using CefSharp.Wpf;
+using GridBrowser;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -133,6 +134,27 @@ namespace WpfApp1
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+            }
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            ResetUrlAll resetUrlAll = new ResetUrlAll();
+            resetUrlAll.ShowDialog();
+            Console.WriteLine(resetUrlAll.DialogResult);
+            if (resetUrlAll.DialogResult == true)
+            {
+                try
+                {
+                    foreach (Control control in this.gmain.Children)
+                    {
+                        ((MyBrowser)control).SetUrl(resetUrlAll.url());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
             }
         }
     }
