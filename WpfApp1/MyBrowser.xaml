@@ -10,7 +10,7 @@
         <Button x:Name="btn_hr" Content="历史" Padding="2,2,2,2" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Click="btn_go_Click" ToolTip="暂未实现"/>
         <Button x:Name="btn_rf" Content="刷新" Padding="2,2,2,2" HorizontalAlignment="Left" Margin="45,5,0,0" VerticalAlignment="Top" Click="btn_rf_Click" ToolTip="忽律缓存重新加载"/>
         <Button x:Name="btn_go" Content="转到" Padding="2,2,2,2" HorizontalAlignment="Left" Margin="83,5,0,0" VerticalAlignment="Top" Click="btn_go_Click" ToolTip="直接加载存在缓存"/>
-        <TextBox x:Name="tb_url" Margin="120,7,40,0" Text="http://192.168.18.107:3616/index.html" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_url" Margin="120,7,40,0" Text="https://gitee.com/wxd-gaming" VerticalAlignment="Top"/>
         <Button x:Name="btn_f12" Content="F12" Padding="2,2,2,2" HorizontalAlignment="Right" Margin="0,5,5,0" VerticalAlignment="Top" Click="btn_f12_Click" ToolTip="调试工具"/>
 
     </Grid>

@@ -37,7 +37,7 @@ namespace WpfApp1
 
         public void InitBrowser()
         {
-            int[] init = new int[] { 1, 2, 2 };
+            int[] init = new int[] { 2, 3, 6 };
             Debug.WriteLine(System.Text.Json.JsonSerializer.Serialize(init));
             if (System.IO.File.Exists(browserCache))
             {

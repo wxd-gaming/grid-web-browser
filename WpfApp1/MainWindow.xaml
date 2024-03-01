@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="無心道 分屏游戏浏览器" Height="850" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="無心道 分屏游戏浏览器" Height="850" Width="1000" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
@@ -13,17 +13,10 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Height="30">
             <MenuItem Header="开始" Height="30" >
-                <MenuItem Header="刷新" Click="mi_refresh_Click"></MenuItem>
-                <MenuItem Header="清理缓存" Click="mi_clear_cache_Click"></MenuItem>
-                <MenuItem Header="统一设置" Click="MenuItem_Click_1"></MenuItem>                
+                <MenuItem Header="刷新" ToolTip="刷新所有页面" Click="mi_refresh_Click"></MenuItem>
+                <MenuItem Header="清理缓存" ToolTip="清空缓存可能会导致卡主，你需要重新打开软件即可，或者多刷新基础" Click="mi_clear_cache_Click"></MenuItem>
+                <MenuItem Header="统一设置" ToolTip="统一设置所有窗体的url" Click="MenuItem_Click_1"></MenuItem>                
                 <Separator/>
-                <MenuItem Header="刘凡" Tag="http://192.168.50.94:3616/index.html" Click="mi_set_url"></MenuItem>
-                <Separator/>
-                <MenuItem Header="清颜" Tag="http://192.168.50.88:3616/index.html" Click="mi_set_url"></MenuItem>
-                <Separator/>
-                <MenuItem Header="飞羽" Tag="http://192.168.50.95:3616/index.html" Click="mi_set_url"></MenuItem>
-                <Separator/>
-                <MenuItem Header="橘子" Tag="http://192.168.50.87:3616/index.html" Click="mi_set_url"></MenuItem>
             </MenuItem>
             <MenuItem Header="纵横" Height="30" >
                 <MenuItem Header="1格" Click="MenuItem_Click" ToolTip="采用一个浏览器" Tag="1,1,1" />
