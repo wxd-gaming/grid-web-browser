@@ -1,5 +1,13 @@
 # grid-web-browser
 
+
+## 更新仓库地址
+
+github https://github.com/orgs/wxd-gaming/repositories<br>
+gitee &nbsp;&nbsp;&nbsp;https://gitee.com/wxd-gaming<br>
+博客首页 https://www.cnblogs.com/wxd-gameing<br>
+
+
 #### 介绍
 分屏浏览器窗体，基于chrome浏览器，使用C#.net的WPF实现
 
